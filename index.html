@@ -10,38 +10,49 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="./assets/favicon_io/site.webmanifest">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>DIENOS KOKTEILIS</title>
 </head>
 
 <body>
-    <!-- <h1 class="">Dienos kokteilis</h1> -->
-    <main class="cocktail">
-        <h1 id="name" class="cocktail-name"></h1>
-        <div class="flex">
-            <div class="cocktail-img-box flex-part">
-                <div id="alcoholic-type" class="alco-type "></div>
-                <img id="img" class="cocktail-img" src="./assets/orange-placeholder.png" width="300px" alt="cocktail image">
+    <main>
+        <h1 class="">Dienos kokteilis</h1>
+        <div class="cocktail">
+            <h2 id="name" class="cocktail-name"></h2>
+            <div class="flex">
+                <div class="cocktail-img-box flex-part">
+                    <div id="alcoholic-type" class="alco-type "></div>
+                    <img id="img" class="cocktail-img" src="./assets/orange-placeholder.png" width="300px" alt="cocktail image">
+                </div>
+                <section class="ingredients flex-part">
+                    <h3>Ingredients</h3>
+                    <ul id="ingredients" class="ingredients-list">
+                    </ul>
+                </section>
             </div>
-            <section class="ingredients flex-part">
-                <h3>Ingredients</h3>
-                <ul id="ingredients" class="ingredients-list">
-                </ul>
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <p class="text-left">Use: <small id="glass-type"></small></p>
+                <p id="instructions"></p>
+
             </section>
+            <button lang="lt" id="new-cocktail-btn">Naujas kokteilis</button>
+
         </div>
-        <section class="instructions">
-            <h3>Instructions</h3>
-            <p class="text-left">Use: <small id="glass-type"></small></p>
-            <p id="instructions"></p>
-
-        </section>
-        <button id="new-cocktail-btn">Naujas kokteilis</button>
-
     </main>
-
     <footer>
-        CONTENT
+        <p>
+            <a href="https://github.com/codevivi"> made by Vilma</a> &nbsp;
+            &nbsp;
+            &nbsp;
+            Api used :
+            <a href="https://www.thecocktaildb.com/api.php">thecocktaildb</a>
+            &nbsp;
+            &nbsp;
+            Background image from :
+            <a href="https://pixabay.com/illustrations/summer-pineapple-fruit-tropical-5341326/">pixabay.com made by keenyam</a>
+        </p>
+
     </footer>
     <script src="main.js"> </script>
 </body>

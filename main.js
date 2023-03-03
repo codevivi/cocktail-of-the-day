@@ -7,9 +7,6 @@ const ELEMENTS = {
   instructions: document.getElementById("instructions"),
   glassType: document.getElementById("glass-type"),
   button: document.getElementById("new-cocktail-btn"),
-  reset: function () {
-    this.ingredients.innerHTML = "";
-  },
 };
 
 ELEMENTS.button.addEventListener("click", showCocktail);
@@ -28,7 +25,7 @@ async function getCocktail(url) {
     });
 }
 async function showCocktail() {
-  ELEMENTS.reset();
+  ELEMENTS.ingredients.innerHTML = "";
   let cocktail = await getCocktail(URL_RANDOM_COCKTAIL);
   if (!cocktail) {
     ELEMENTS.name.textContent = "Sorry. Application failed..";
@@ -40,9 +37,11 @@ async function showCocktail() {
   ELEMENTS.alcoholicType.textContent = cocktail.alcoholicType;
   ELEMENTS.glassType.textContent = cocktail.glassType;
   ELEMENTS.instructions.textContent = cocktail.instructions;
-  ELEMENTS.alcoholicType.setAttribute("class", `alco-type ${cocktail.alcoholicType.slice(0, cocktail.alcoholicType.indexOf(" ")).toLowerCase()}`);
+  //set attribute to rewrite class
+  let alcoholicClass = `alco-type ${cocktail.alcoholicType.slice(0, cocktail.alcoholicType.indexOf(" ")).toLowerCase()}`; //set class to be first word of string (will return word-last letter, when only one word);
+  ELEMENTS.alcoholicType.setAttribute("class", alcoholicClass);
   cocktail.ingredients.forEach((item) => {
-    ELEMENTS.ingredients.innerHTML += `<li><span class="ingredient-amount">${item.amount}</span> <span class="ingredient-name">${item.name} </span> <img src="${item.imgUrl}" width="100" alt=""> </li>`;
+    ELEMENTS.ingredients.appendChild(createIngredientListItem(item));
   });
 }
 
@@ -53,7 +52,7 @@ function customizeCocktailData(cocktail) {
     if (cocktail[key]) {
       ingredients.push({
         name: cocktail[key],
-        amount: cocktail[`strMeasure${i}`],
+        amount: cocktail[`strMeasure${i}`] ? cocktail[`strMeasure${i}`] : "", //sometimes it is null( when optional)
         imgUrl: `https://www.thecocktaildb.com/images/ingredients/${cocktail[key]}.png`,
       });
     }
@@ -66,4 +65,21 @@ function customizeCocktailData(cocktail) {
     ingredients: ingredients,
     instructions: cocktail.strInstructions,
   };
+}
+function createIngredientListItem(ingredient) {
+  let li = document.createElement("li");
+  let amountSpan = document.createElement("span");
+  amountSpan.classList.add("ingredient-amount");
+  amountSpan.textContent = ingredient.amount;
+  let nameSpan = document.createElement("span");
+  nameSpan.classList.add("ingredient-name");
+  nameSpan.textContent = ingredient.name;
+  let img = document.createElement("img");
+  img.setAttribute("src", ingredient.imgUrl);
+  img.setAttribute("width", "50");
+  img.setAttribute("alt", `${ingredient.name} cocktail picture`);
+  li.appendChild(amountSpan);
+  li.appendChild(nameSpan);
+  li.appendChild(img);
+  return li;
 }

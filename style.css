@@ -11,7 +11,7 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  padding-top: 2rem;
+  padding-top: 3.5rem;
   background-image: url("./assets/bg-cocktail.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,15 +19,26 @@ body {
   text-align: center;
   overflow: scroll;
 }
+h1 {
+  background-color: #1b1622;
+  color: white;
+  width: fit-content;
+  padding: 0.3rem 3rem;
+  position: absolute;
+  border-radius: 0 0 8px 0;
+  top: 0;
+  left: 0;
+}
 .cocktail {
   width: 90%;
   max-width: 900px;
   height: auto;
   min-height: 80vh;
   padding: 2rem;
+  margin: auto;
   margin-bottom: 2rem;
   color: #1b1622;
-  background-color: rgb(255, 193, 9);
+  background-color: #ffc109;
   border: 5px solid #1b1622;
   border-radius: 8px;
 }
@@ -52,6 +63,10 @@ body {
   justify-content: space-around;
 }
 @media screen and (min-width: 900px) {
+  .cocktail .flex {
+    margin-bottom: 2rem;
+  }
+
   .flex-part {
     flex: 1;
   }
@@ -123,7 +138,8 @@ body {
   transition: all 0.5s;
 }
 .ingredients-list li:hover img {
-  width: 170px;
+  width: 200px;
+  right: -80px;
 }
 .ingredient-amount {
   color: #026477;
@@ -138,18 +154,22 @@ body {
   width: fit-content;
   padding: 0.2rem 1rem;
   margin: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   background-color: rgba(255, 255, 255, 0.149);
   font-weight: normal;
 }
 p {
   margin-bottom: 1em;
+  line-height: 1.8;
+  text-align: left;
 }
 .text-left {
   text-align: left;
 }
 button {
   padding: 1em;
+  margin-bottom: 3em;
+  margin-top: 2em;
   border: 3px solid #1b1622;
   background-color: #e2b04d;
   border-radius: 8px;
@@ -163,5 +183,24 @@ button:focus {
   background-color: #4fa4b6;
 }
 footer {
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: white;
+  width: fit-content;
+  margin-left: auto;
+  border-radius: 8px 0 0 0;
+
+  border-left: 3px solid #1b1622;
+  border-top: 3px solid #1b1622;
+}
+footer p {
+  margin: 0;
+  line-height: 1;
+  padding: 0.5rem 3rem;
+}
+footer a {
+  color: #7f4707;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #4ba6b6;
 }
