@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 2rem;
+  background-image: url("./assets/bg-cocktail.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Shantell Sans", cursive;
+  text-align: center;
+  overflow: scroll;
+}
+.cocktail {
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  min-height: 80vh;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  color: #1b1622;
+  background-color: rgb(255, 193, 9);
+  border: 5px solid #1b1622;
+  border-radius: 8px;
+}
+.cocktail-name {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cocktail .flex {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.flex-part {
+  width: 100%;
+  justify-content: space-around;
+}
+@media screen and (min-width: 900px) {
+  .flex-part {
+    width: 50%;
+  }
+}
+.cocktail-img-box {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px #1b1622;
+}
+.cocktail-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cocktail-img-box .alco-type {
+  position: absolute;
+  top: 3em;
+  left: -3.3em;
+  width: 16em;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: #b80a0a;
+  border: 2px solid #1b1622;
+  font-weight: bold;
+  text-transform: uppercase;
+  transform: rotate(-45deg);
+}
+.ingredients-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  list-style: none;
+}
+
+.ingredients-list li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: -2rem;
+}
+.ing-unit {
+  color: #026477;
+  font-style: italic;
+}
+.cocktail h3 {
+  width: fit-content;
+  padding: 0.2rem 1rem;
+  margin: auto;
+  margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, 0.149);
+  font-weight: normal;
+}
+p {
+  margin-bottom: 1em;
+}
+.text-right {
+  text-align: right;
+}
+button {
+  padding: 1em;
+  border: 3px solid #1b1622;
+  background-color: #e2b04d;
+  border-radius: 8px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s;
+}
+button:hover,
+button:focus {
+  background-color: #4fa4b6;
+}
+footer {
+  background-color: rgba(255, 255, 255, 0.87);
+}

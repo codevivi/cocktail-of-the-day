@@ -1,5 +1,7 @@
 const URL_RANDOM_COCKTAIL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
+//showCocktail();
+
 async function getCocktail(url) {
   return await fetch(url)
     .then((res) => res.json())
@@ -15,11 +17,9 @@ async function showCocktail() {
   let cocktail = await getCocktail(URL_RANDOM_COCKTAIL);
   if (!cocktail) return;
   cocktail = customizeCocktailData(cocktail);
-  console.log(cocktail, "coctail");
-  return cocktail;
+  console.log(cocktail);
 }
 
-showCocktail();
 function customizeCocktailData(cocktail) {
   let ingredients = [];
   for (let i = 1; i <= 15; i++) {
