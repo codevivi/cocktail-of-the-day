@@ -1,6 +1,20 @@
 const URL_RANDOM_COCKTAIL = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
+const ELEMENTS = {
+  name: document.getElementById("name"),
+  img: document.getElementById("img"),
+  alcoholicType: document.getElementById("alcoholic-type"),
+  ingredients: document.getElementById("ingredients"), //ul
+  instructions: document.getElementById("instructions"),
+  glassType: document.getElementById("glass-type"),
+  button: document.getElementById("new-cocktail-btn"),
+  reset: function () {
+    this.ingredients.innerHTML = "";
+  },
+};
 
-//showCocktail();
+ELEMENTS.button.addEventListener("click", showCocktail);
+
+showCocktail();
 
 async function getCocktail(url) {
   return await fetch(url)
@@ -14,10 +28,22 @@ async function getCocktail(url) {
     });
 }
 async function showCocktail() {
+  ELEMENTS.reset();
   let cocktail = await getCocktail(URL_RANDOM_COCKTAIL);
-  if (!cocktail) return;
+  if (!cocktail) {
+    ELEMENTS.name.textContent = "Sorry. Application failed..";
+    return;
+  }
   cocktail = customizeCocktailData(cocktail);
-  console.log(cocktail);
+  ELEMENTS.name.textContent = cocktail.name;
+  ELEMENTS.img.src = cocktail.imgUrl;
+  ELEMENTS.alcoholicType.textContent = cocktail.alcoholicType;
+  ELEMENTS.glassType.textContent = cocktail.glassType;
+  ELEMENTS.instructions.textContent = cocktail.instructions;
+  ELEMENTS.alcoholicType.setAttribute("class", `alco-type ${cocktail.alcoholicType.slice(0, cocktail.alcoholicType.indexOf(" ")).toLowerCase()}`);
+  cocktail.ingredients.forEach((item) => {
+    ELEMENTS.ingredients.innerHTML += `<li><span class="ingredient-amount">${item.amount}</span> <span class="ingredient-name">${item.name} </span> <img src="${item.imgUrl}" width="100" alt=""> </li>`;
+  });
 }
 
 function customizeCocktailData(cocktail) {
@@ -28,7 +54,7 @@ function customizeCocktailData(cocktail) {
       ingredients.push({
         name: cocktail[key],
         amount: cocktail[`strMeasure${i}`],
-        imgUrl: "www.thecocktaildb.com/images/ingredients/gin-Medium.png",
+        imgUrl: `https://www.thecocktaildb.com/images/ingredients/${cocktail[key]}.png`,
       });
     }
   }
@@ -38,5 +64,6 @@ function customizeCocktailData(cocktail) {
     glassType: cocktail.strGlass,
     alcoholicType: cocktail.strAlcoholic,
     ingredients: ingredients,
+    instructions: cocktail.strInstructions,
   };
 }

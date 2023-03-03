@@ -44,14 +44,16 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
+  gap: 3em;
 }
 .flex-part {
   width: 100%;
+
   justify-content: space-around;
 }
 @media screen and (min-width: 900px) {
   .flex-part {
-    width: 50%;
+    flex: 1;
   }
 }
 .cocktail-img-box {
@@ -74,32 +76,63 @@ body {
   width: 16em;
   padding: 0.5rem 2rem;
   color: white;
-  background-color: #b80a0a;
   border: 2px solid #1b1622;
   font-weight: bold;
   text-transform: uppercase;
   transform: rotate(-45deg);
 }
+
+.cocktail-img-box .alco-type.alcoholi {
+  background-color: #b80a0a;
+}
+.cocktail-img-box .alco-type.non {
+  background-color: #4ba6b6;
+}
+.cocktail-img-box .alco-type.optional {
+  background-color: #dfaf50;
+}
+
 .ingredients-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   margin-bottom: 2rem;
   list-style: none;
 }
 
 .ingredients-list li {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 1px solid #1b1622;
+  justify-content: space-between;
   gap: 1rem;
   width: 100%;
-  margin-bottom: -2rem;
+  padding: 2rem 100px 0.2rem 1rem;
+  text-align: left;
 }
-.ing-unit {
+.ingredients-list li img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  flex: 1;
+  transition: all 0.5s;
+}
+.ingredients-list li:hover img {
+  width: 170px;
+}
+.ingredient-amount {
   color: #026477;
   font-style: italic;
+  flex: 1.5;
+  font-size: 0.8rem;
+}
+.ingredient-name {
+  flex: 3;
 }
 .cocktail h3 {
   width: fit-content;
@@ -112,8 +145,8 @@ body {
 p {
   margin-bottom: 1em;
 }
-.text-right {
-  text-align: right;
+.text-left {
+  text-align: left;
 }
 button {
   padding: 1em;
@@ -126,6 +159,7 @@ button {
 }
 button:hover,
 button:focus {
+  cursor: pointer;
   background-color: #4fa4b6;
 }
 footer {
