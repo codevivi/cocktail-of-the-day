@@ -2,16 +2,12 @@
 
 ## 📋 About
 
-<!-- ![alt app screenshot](./assets/images/screenshot.png) -->
+![alt app screenshot](./assets/screenshot.png)
 
 2022-03-06 friday assignment
 Fetch and use data from external API - [thecocktaildb](https://www.thecocktaildb.com/api.php)
 
 🌐 **Site published at**: [https://codevivi.github.io/using-api-cocktails](https://codevivi.github.io/cocktail-of-the-day)
-
-📈 **Status**: Working on
-
-<!-- ⚠️ check/add issues on issues tab -->
 
 🎯 **Goals:**
 

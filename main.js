@@ -52,7 +52,7 @@ function customizeCocktailData(cocktail) {
     if (cocktail[key]) {
       ingredients.push({
         name: cocktail[key],
-        amount: cocktail[`strMeasure${i}`] ? cocktail[`strMeasure${i}`] : "", //sometimes it is null( when optional)
+        amount: cocktail[`strMeasure${i}`] ? cocktail[`strMeasure${i}`] : "", //sometimes it is null( when optional), so if null make it empty string
         imgUrl: `https://www.thecocktaildb.com/images/ingredients/${cocktail[key]}.png`,
       });
     }
